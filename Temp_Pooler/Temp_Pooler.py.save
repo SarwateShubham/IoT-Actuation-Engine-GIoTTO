@@ -1,0 +1,52 @@
+import requests, json, time
+
+global url
+url="http://bd-exp.andrew.cmu.edu"
+def getOauthToken():
+    url="http://bd-exp.andrew.cmu.edu:81/oauth/access_token/client_id=n7a2mZ0JebrnVDWc2bxH94x4Vew9NXgyorwGHzud/client_secret=XgQuvGUvYTh31Egbg6GGBdeGjaV2E3DDZDx0atSZVOhhtPF9gA"
+    response = requests.get(url).json()
+    access_token = response["access_token"]
+    return access_token
+
+def get_sensor_data(sensor):
+    headers = {'content-type':'application/json',
+			'charset' : 'utf-8',
+			'Authorization' : 'Bearer '+ getOauthToken()}
+    end_time = time.time()
+    start_time =end_time-100
+    get_url = url + ":82/api/sensor/"+sensor+"/timeseries?start_time="+`start_time` + "&end_time="+`end_time`
+    try:
+        response=requests.get(get_url, headers = headers).json()
+	#print response
+	return response
+    except Exception as e:
+            print sensor+" didn't find data for the past 150 seconds . Please check the sensor"
+            return str(e)
+
+def sensorlist():
+  access_token=getOauthToken()
+  print access_token
+  header = {"Authorization": "Bearer " + access_token, 'content-type':'application/json'}
+  url_sensor_list = url+":81/api/search"
+  data={"data":{"Tags":["room:2502"]}}
+  #print url_sensor_list,data,type(data)
+  response = requests.post(url_sensor_list,data=json.dumps(data),headers = header).json()
+  #print response	
+  for x in response['result']:	
+	uuids.append(x['name'])
+  print uuids
+
+
+def final_function():
+    sensorlist()
+  #while len(uuids)>0:
+    for x in uuids:
+      temp=get_sensor_data(x)
+      #print temp
+      for t in temp['data']['series']:
+	for sens in t['values']:
+	    if(sens==t['values'][-1]):
+	      print sens[2]
+
+
+final_function()

@@ -1,0 +1,10 @@
+{
+	"client_auth": {
+          	"_CLIENT_TOKEN":"ENTER_CLIENT_TOKEN"
+            	},
+	"url": {
+		"_BASE_URL": "https://api.lifx.com/v1/lights/",
+		"_DEVICELIST_REQ": "https://api.lifx.com/v1/lights/all",
+		"_DEVICE_REQ": "https://api.lifx.com/v1/lights/all/state"
+	}
+}
