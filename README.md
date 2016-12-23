@@ -15,8 +15,7 @@ The Flask server has been hosted on a port on BD server(https://bd-exp.andrew.cm
 The location of the Actuation Engine in the System Block Diagram :
 Inline-style: 
 ![alt text][logo]
-
-[logo]: (https://drive.google.com/file/d/0BzODPKZfBVTfZmh1M1JpOW5RYk0/view?usp=sharing "Logo Title Text 2")
+https://github.com/SarwateShubham/IoT-Actuation-Engine-GIoTTO/blob/master/Actuation%20Engine.png "Actuation Engine Block Diagram")
 
 
 ##How to access the API :
