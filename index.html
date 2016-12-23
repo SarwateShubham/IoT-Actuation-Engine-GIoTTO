@@ -1,0 +1,62 @@
+<HTML>
+<p><span style="font-weight: 400;">Actuation Engine</span></p>
+<h3><span style="font-weight: 400;">Introduction : </span></h3>
+<p><span style="font-weight: 400;">The Actuation Engine is a generic actuation system which allows users to access a set of API&rsquo;s using which he can actuate the devices registered on the Building Depot .</span></p>
+<p><span style="font-weight: 400;">The Flask server has been hosted on a port on BD server(https://bd-exp.andrew.cmu.edu:69). The devices that have been already connected to the actuation engine are Philips Hue, Wemo and Lifx bulbs. In order connect more type of devices Building Depot, the user needs to upload the new device actuation script into the &ldquo;Scripts&rdquo; folder of the Actuation Engine and edit the &ldquo;manager.py&rdquo; file to enable access to the device.</span></p>
+<h3><span style="font-weight: 400;">Salient Features :</span></h3>
+<ul>
+<li style="font-weight: 400;"><strong>Generic in nature :</strong><span style="font-weight: 400;"> A generic access technique to control a large set of devices.</span></li>
+<li style="font-weight: 400;"><strong>Customizable :</strong><span style="font-weight: 400;"> New device scripts can be easily added to the engine with little effort.</span></li>
+<li style="font-weight: 400;"><strong>Independent :</strong><span style="font-weight: 400;"> It can function independently and can be accessed for any actuation of devices with proper credentials.</span></li>
+</ul>
+<h3><span style="font-weight: 400;">The location of the Actuation Engine in the System Block Diagram :</span></h3>
+<p><br /><img src="C:\Users\lullichoti\Downloads\Actuation Engine" alt="" /><br /><br /><br /></p>
+<h3><span style="font-weight: 400;">How to access the API :</span></h3>
+<p><strong>POST /api</strong></p>
+<p><span style="font-weight: 400;">Within a single POST provide parameters to send request. The format for each sensor point in the list should be as follows.</span></p>
+<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<td colspan="2">
+<p><strong>API Access Template</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;"> &nbsp;&nbsp;&nbsp;&nbsp;</span><strong>JSON Parameter</strong></p>
+</td>
+<td>
+<ul>
+<li style="font-weight: 400;"><strong>Type : </strong><span style="font-weight: 400;">The type of the device that needs to be actuated Eg. Wemo,Lifx,Philips Hue</span></li>
+<li style="font-weight: 400;"><strong>New_state : </strong><span style="font-weight: 400;">The new state that device needs to be in. Eg. on,off,{&lsquo;color&rsquo; : &lsquo;green&rsquo;}etc.</span></li>
+<li style="font-weight: 400;"><strong>Identity</strong><span style="font-weight: 400;"> : The unique identity of the device which can be used to identify the device on the network.Eg.MAC address, IP address, Device names etc.</span></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong> &nbsp;&nbsp;&nbsp;&nbsp;Returns:</strong></p>
+</td>
+<td>
+<p><strong>success</strong><span style="font-weight: 400;"> (string) &ndash; Returns &lsquo;True&rsquo; if data is posted successfully otherwise &lsquo;False&rsquo;</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong> &nbsp;&nbsp;&nbsp;Status Codes:</strong></p>
+</td>
+<td>
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1"><span style="font-weight: 400;">200 OK</span></a><span style="font-weight: 400;"> &ndash; Success</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><br /><br /></p>
+<p><span style="font-weight: 400;">API access example:</span></p>
+<p><span style="font-weight: 400;">POST</span> <strong>/api</strong> <strong>HTTP</strong><span style="font-weight: 400;">/</span><span style="font-weight: 400;">1.1</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;">Accept</span><span style="font-weight: 400;">:</span><span style="font-weight: 400;"> application/json; charset=utf-8</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;">[</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> &nbsp;{</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"> &nbsp;&nbsp;&ldquo;type&rdquo;:&rdquo;lifx&rdquo;,</span></p>
+<p><span style="font-weight: 400;"> &nbsp;&nbsp;&ldquo;new_state&rdquo;:&rdquo;on&rdquo;,</span></p>
+<p><span style="font-weight: 400;"> &nbsp;&nbsp;&ldquo;identity&rdquo;:&rdquo;lifx-demo-room&rdquo; &nbsp;</span></p>
+<p><span style="font-weight: 400;"> &nbsp;}</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;">]</span></p>
+<p>&nbsp;</p>
+</HTML>
