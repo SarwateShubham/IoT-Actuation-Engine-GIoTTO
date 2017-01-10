@@ -4,7 +4,7 @@
 
 The Actuation Engine is a generic actuation system which allows users to access a set of API&#39;s using which he can actuate the devices registered on the Building Depot .
 
-The Flask server has been hosted on a port on BD server(https://bd-exp.andrew.cmu.edu:69). The devices that have been already connected to the actuation engine are Philips Hue, Wemo and Lifx bulbs. In order connect more type of devices Building Depot, the user needs to upload the new device actuation script into the &quot;Scripts&quot; folder of the Actuation Engine and edit the &quot;manager.py&quot; file to enable access to the device.
+The Flask server has been hosted on a port on the Building Depot/GIoTTO. The devices that have been already connected to the actuation engine are Philips Hue, Wemo and Lifx bulbs. In order connect more type of devices Building Depot, the user needs to upload the new device actuation script into the "Device Scripts" folder of the Actuation Engine and edit the "manager.py" file to enable access to the device.
 
 ##Salient Features :
 
@@ -30,7 +30,7 @@ Within a single POST provide parameters to send request. The format for each sen
 | **Returns:** | **success** (string) – Returns &#39;True&#39; if data is posted successfully otherwise &#39;False&#39; |
 ###API access example:
 
-POST **/api**** HTTP**/1.1
+POST /api HTTP/1.1
 >Accept: application/json; charset=utf-8
 ```javascript
 [
