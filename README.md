@@ -1,12 +1,12 @@
 # IoT-Actuation-Engine-GIoTTO
 
-##Introduction :
+**Introduction** :
 
 The Actuation Engine is a generic actuation system which allows users to access a set of API&#39;s using which he can actuate the devices registered on the Building Depot .
 
 The Flask server has been hosted on a port on the Building Depot/GIoTTO. The devices that have been already connected to the actuation engine are Philips Hue, Wemo and Lifx bulbs. In order connect more type of devices Building Depot, the user needs to upload the new device actuation script into the "Device Scripts" folder of the Actuation Engine and edit the "manager.py" file to enable access to the device.
 
-##Salient Features :
+**Salient Features** :
 
 - **Generic in nature :** A generic access technique to control a large set of devices.
 - **Customizable :** New device scripts can be easily added to the engine with little effort.
@@ -15,7 +15,7 @@ The Flask server has been hosted on a port on the Building Depot/GIoTTO. The dev
 The location of the Actuation Engine in the System Block Diagram :
 Inline-style: 
 ![alt text](https://github.com/SarwateShubham/IoT-Actuation-Engine-GIoTTO/blob/master/Actuation%20Engine.png "Actuation Engine Block Diagram")
-##How to access the API :
+**How to access the API** :
 
 **POST /api**
 
@@ -28,11 +28,13 @@ Within a single POST provide parameters to send request. The format for each sen
 |Parameter 2|**New\_state :** The new state that device needs to be in. Eg. on,off,{&#39;color&#39; : &#39;green&#39;}etc.|
 |Parameter 3| **Identity** : The unique identity of the device which can be used to identify the device on the network.Eg.MAC address, IP address, Device names etc.|
 | **Returns:** | **success** (string) – Returns &#39;True&#39; if data is posted successfully otherwise &#39;False&#39; |
-###API access example:
+
+**API access example:**
 
 POST /api HTTP/1.1
->Accept: application/json; charset=utf-8
+
 ```javascript
+Accept: application/json; charset=utf-8
 [
   {
    "type":"lifx",
